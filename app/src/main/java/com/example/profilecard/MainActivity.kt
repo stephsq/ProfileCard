@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.sp
 import com.example.profilecard.ui.theme.ProfileCardTheme
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
 class MainActivity : ComponentActivity() {
@@ -39,6 +40,7 @@ class MainActivity : ComponentActivity() {
                     ProfileCard(
                         name = "Stephanie Quach",
                         description = "Hi! My name is Stephanie and I'm a programming student at Pellissippi College.",
+                        imageResource = R.drawable.profilepicture
                     )
                 }
             }
@@ -51,6 +53,7 @@ class MainActivity : ComponentActivity() {
 fun ProfileCard(
     name: String,
     description: String,
+    imageResource: Int,
     modifier: Modifier = Modifier
 ) {
     //column to stack components vertically
@@ -61,26 +64,24 @@ fun ProfileCard(
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp, alignment = Alignment.CenterVertically),
         horizontalAlignment = Alignment.CenterHorizontally
-
     ) {
-        ProfileImage() //displays image
+        ProfileImage(imageResource = imageResource)
         Text(
             text = name,
-            fontSize = 40.sp,
-            modifier = modifier
+            fontSize = 40.sp
         )
         Text(
             text = description,
             fontSize = 20.sp,
-            modifier = modifier
+            textAlign = TextAlign.Center
         )
     }
 }
 
 //display profile image as a circle
 @Composable
-fun ProfileImage(modifier: Modifier = Modifier) {
-    val image = painterResource(R.drawable.profilepicture)
+fun ProfileImage(imageResource: Int, modifier: Modifier = Modifier) {
+    val image = painterResource(id = imageResource)
     Image(
         painter = image,
         contentDescription = "Profile Picture",
@@ -95,11 +96,10 @@ fun ProfileImage(modifier: Modifier = Modifier) {
 @Composable
 fun ProfileCardPreview() {
     ProfileCardTheme {
-
             ProfileCard(
                 name = "Stephanie Quach",
-                description = "Hi! My name is Stephanie and I'm a programming student at Pellissippi College."
+                description = "Hi! My name is Stephanie and I'm a programming student at Pellissippi College.",
+                imageResource = R.drawable.profilepicture
             )
-
     }
 }
