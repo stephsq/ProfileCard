@@ -34,7 +34,6 @@ class MainActivity : ComponentActivity() {
             ProfileCardTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = Color(0xFFF6EDFF) //background color does not work here for some reason
                 )
                 {
                     ProfileCard(
@@ -53,14 +52,13 @@ class MainActivity : ComponentActivity() {
 fun ProfileCard(
     name: String,
     description: String,
-    imageResource: Int,
-    modifier: Modifier = Modifier
+    imageResource: Int
 ) {
     //column to stack components vertically
     Column (
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFA8A7F7)) //background color works here, but not the surface
+            .background(Color(0xFFA8A7F7))
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp, alignment = Alignment.CenterVertically),
         horizontalAlignment = Alignment.CenterHorizontally
