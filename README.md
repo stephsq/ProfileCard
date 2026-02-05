@@ -5,7 +5,8 @@ This project allows you to make a custom profile card using Jetpack Compose disp
 
 **Installation**
 1.  Clone the repository:
-    > https://github.com/stephsq/ProfileCard.git
+    > ```bash
+        git clone https://github.com/stephsq/ProfileCard.git
     
 2.  Open in Android Studio:
     > Launch Android Studio.
@@ -23,9 +24,9 @@ This project allows you to make a custom profile card using Jetpack Compose disp
         description = "Your short bio goes here."
         imageResource = R.drawable.[Your image name]
     )
-    ```
+    
 
-2. To change the profile image,:
+2. To change the profile image:
     > Click on Resourse manager on left panel and add using the '+' symbol.
     > Import Drawable and navigate to your image file.
     > Name your image item, Qualifier Type: Density, Value: No Density.
